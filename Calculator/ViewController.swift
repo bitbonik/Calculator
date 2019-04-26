@@ -18,6 +18,17 @@ class ViewController: UIViewController {
 
     //MARK:- removing numbers from screen button functionality
     
+    
+    
+    @IBOutlet var btnCollection: [UIButton]!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        makeRound()
+    }
+    
+    
+    
     @IBAction func clearBtn(_ sender: UIButton) {
         if sender.currentTitle! == "c"{
             displayLbl.text = ""
@@ -61,6 +72,7 @@ class ViewController: UIViewController {
         }
         
         resultShown = true
+        
   
     }
     
@@ -74,5 +86,15 @@ class ViewController: UIViewController {
             return symbol
         }
     }
+    
+    
+    func makeRound(){
+        for btn in btnCollection{
+            btn.layer.cornerRadius = btn.frame.size.width / 2
+            btn.layer.masksToBounds = true
+        }
+    }
+    
+    
 }
 
